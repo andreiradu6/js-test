@@ -39,27 +39,57 @@ console.log(myObj);
 
 // P2
 console.log("P2 START");
-const peopleWhoBelongToTheIlluminati = (arr) => {
+const makeStrings = (arr) => {
   // your code here
   const members = arr.map((person) => {
-    if (person.member) {
-      return person;
+    if (person.age >= 18) {
+      return `${person.name} can go to The Matrix!`;
     } else {
-      return "";
+      return `${person.name} is under age!`;
     }
   });
 
-  return members.filter((person) => person != "");
+  return members;
 };
 console.log(
-  peopleWhoBelongToTheIlluminati([
-    { name: "Angelina Jolie", member: true },
-    { name: "Eric Jones", member: false },
-    { name: "Paris Hilton", member: true },
-    { name: "Kayne West", member: false },
-    { name: "Bob Ziroll", member: true },
+  makeStrings([
+    {
+      name: "Angelina Jolie",
+      age: 80,
+    },
+    {
+      name: "Eric Jones",
+      age: 2,
+    },
+    {
+      name: "Paris Hilton",
+      age: 5,
+    },
+    {
+      name: "Kayne West",
+      age: 16,
+    },
+    {
+      name: "Bob Ziroll",
+      age: 100,
+    },
+    {
+      name: "Andrei Radu",
+      age: 18,
+    },
+    {
+      name: "Test",
+      age: 23,
+    },
   ])
 );
+// ["Angelina Jolie can go to The Matrix",
+// "Eric Jones is under age!!",
+// "Paris Hilton is under age!!",
+// "Kayne West is under age!!",
+// "Bob Ziroll can go to The Matrix",
+// "Andrei Radu can to The Matrix",
+// "Test is under age!!"];
 console.log("P2 END");
 // P2 END
 
@@ -95,20 +125,17 @@ console.log("P3 END");
 // Reduce exercises:
 console.log("P4 START");
 const shoppingSpree = (arr) => {
-//   v1
-//   return arr
-//             .map((prices) => {
-//             return prices.price;
-//             })
-//             .reduce((previous, current) => {
-//             return previous + current;
-//             });
+  //   v1
+  //   return arr
+  //             .map((prices) => {
+  //             return prices.price;
+  //             })
+  //             .reduce((previous, current) => {
+  //             return previous + current;
+  //             });
 
-
-// v2
-    return arr.reduce((total, wishlist) => 
-        total + wishlist.price
-    , 0);
+  // v2
+  return arr.reduce((total, wishlist) => total + wishlist.price, 0);
 };
 
 let wishlist = [
@@ -122,7 +149,6 @@ let wishlist = [
 console.log(shoppingSpree(wishlist)); // 227005
 // P4 END
 console.log("P4 END");
-
 
 console.log("P5 START");
 const flatten = (arr) => {
